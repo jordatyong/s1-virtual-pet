@@ -36,4 +36,22 @@ public class VirtualPet {
         face.setImage("asleep");
     }
 
+    public void setMood(String mood) {
+        //  possible moods: angel, angry, annoyed, asleep, astonished, cry, dead, depressed, ecstatic, enraged, exercising, happy, hungry,
+        //  joyful, love, normal, pushing daisies, sad, shocked, sick, skeleton, starving, surprised, tired, verysad, verysick
+        face.setImage(mood);
+    }
+    public void saySomething(String in){
+        face.setMessage(in);
+    }
+
+    public void death(){
+        if(hunger>=10){
+            face.setImage("dead");
+        }
+    }
+    public void decompose(){
+        face.setImage("skeleton");
+    }
+
 } // end Virtual Pet
