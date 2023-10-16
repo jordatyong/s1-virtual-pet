@@ -53,5 +53,14 @@ public class VirtualPet {
     public void decompose(){
         face.setImage("skeleton");
     }
+    
+    public int getHunger(){
+        return this.hunger;
+    }
+
+    public void running(){
+        face.setImage("running");
+        hunger = hunger + 4;
+    }
 
 } // end Virtual Pet

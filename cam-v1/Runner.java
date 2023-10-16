@@ -1,12 +1,12 @@
 import javax.swing.*;
 
 public class Runner{
-    }    
-    public Runner(){
-        VirtualPet v = new VirtualPet();
-        // v.feed();
-        // takeABeat(1000);
-        // v.exercise();
+    VirtualPet v = new VirtualPet();
+        public Runner(){
+        
+        //  possible moods: angel, angry, annoyed, asleep, astonished, cry, dead, depressed, ecstatic, enraged, exercising, happy, hungry,
+        //  joyful, love, normal, pushing daisies, sad, shocked, sick, skeleton, starving, surprised, tired, verysad, verysick
+
         takeABeat(1500);
         String q = "How are you?";
         String ans = getAnswer(q);
@@ -20,7 +20,7 @@ public class Runner{
             v.saySomething("That's too bad.");
         }
         takeABeat(3000);
-        q = "Do you want to exercise?";
+        q = "Let's go to the gym, buddy?";
         ans = getAnswer(q);
         v.saySomething(q);
         if(ans.equalsIgnoreCase("yes")||ans.equalsIgnoreCase("Okay")){
@@ -28,9 +28,14 @@ public class Runner{
             v.saySomething("Sweet! We can do some jumping jacks.");
             takeABeat(10000);
             v.exercise();
+            takeABeat(5000);
+            v.saySomething("I can go for some running, too!");
+            v.running();
+            takeABeat(3000);
+            v.exercise();
         }
         else if(ans.equalsIgnoreCase("no")){
-            v.setMood("depressed");
+            v.setMood("verysad");
             v.saySomething("That sucks.");
         }
         takeABeat(3000);
@@ -40,18 +45,26 @@ public class Runner{
         if(ans.equalsIgnoreCase("yes")){
             v.setMood("happy");
             v.saySomething("Sweet! I'm hungry.");
-            takeABeat(1000);
+            takeABeat(10000);
             v.feed();
         }
         else if(ans.equalsIgnoreCase("No")){
             v.setMood("hungry");
             v.saySomething("Okay... I'm really hungry.");
-            takeABeat(4000);
-            v.death();
-            takeABeat(10000);
-            v.decompose();
         }
+        takeABeat(5000);
+        v.saySomething("I'm getting tired. I'm going to go to sleep.");
+        v.sleep();
+        takeABeat(10000);
+        if (v.getHunger() >= 10){
+            v.death();
+            v.saySomething("I died from hunger!");
+        } 
+        else{
+            v.setMood("normal");
+            v.saySomething("Good morning.");
 
+        }
     }
     
     public String getAnswer(String q){
